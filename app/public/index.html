@@ -46,9 +46,9 @@
     </nav>
     <main class="row">
    
-        <!--<form v-on:submit.prevent="fetchUserData"> 
+        <form v-on:submit.prevent="fetchUserData"> 
           <button type="submit"> Refresh </button>
-        </form>-->
+        </form>
       <div id="randomuser" class="container-fluid">
         <a v-bind:href="person.picture.medium" target="_blank"> <img v-bind:src="person.picture.medium" alt="Random User" height="200"></a> 
         <ol>
