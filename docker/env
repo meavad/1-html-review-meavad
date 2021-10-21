@@ -1,0 +1,4 @@
+MYSQL_DATABASE=msisdb
+MYSQL_HOST=db1.cvaw8iwzvx5x.us-east-2.rds.amazonaws.com
+MYSQL_USER= meavad  
+MYSQL_PASSWORD= Rome!234

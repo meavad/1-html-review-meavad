@@ -4,11 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
 
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+=======
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link href="style.css" rel="stylesheet" type="text/css" />
+
   </head>
 
 
@@ -17,6 +26,88 @@
     <header class="row">
 
     
+
+    <div class="center col-12"> 
+       <h1 class="text-center"> My Website </h1>
+
+    </div>
+
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mybooks.html">My Books</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="myinterests.html">My Interests</a>
+            </li>
+          </ul>
+      </div>
+    </nav>
+    <main class="row">
+
+      <div v-for="s in students" v-on:click="selectStudent(s)"
+             :class="['student', {selected: selectedStudent && s.id == selectedStudent.id}]">
+              <span class="userName">{{ s.username }}</span><br>
+              <span class="studentName">{{ s.name }}</span>
+            </div>
+          </div>
+   
+        <form v-on:submit.prevent="fetchUserData"> 
+          <!-- <div class="mb-3"> makes the checkbox/icon larger, easier to click and read
+            <label for="companyName" class="form-label"> Email Address </label>
+            <input type="email"
+          </div> -->
+          <button type="submit"> Refresh </button>
+        </form>
+      <div id="someApp" class="container-fluid">
+       <div class="student" v-for="s in students"
+       v-on:click="selectStudent(s)"></div>
+       <span class="userName"> {{ s.username }} </span> <br>
+       <span class="studentName"> {{ s.name }} </span>
+       </div>
+       <h1> Offers! </h1>
+       <table>
+         <thead>
+           <tr>
+             <th> Company </th>
+             <th> Salary </th>
+             <th> Bonus </th>
+             <th> Offer Date </th>
+             <th> Status </th>
+           </tr>
+         </thead>
+         <tbody>
+           
+         </tbody>
+       </table>
+        <a v-bind:href="person.picture.medium" target="_blank"> <img v-bind:src="person.picture.medium" alt="Random User"></a> 
+        <ol>
+          <li>  My name is {{ person.name.first }} {{ person.name.last }} </li>   
+          <li> Where I am from : {{ person.location.country }} </li> 
+          <li> My date of birth is {{ prettyBirthday }} </li> 
+          <li> My age is {{ person.dob.age }} </li> 
+          <li>Email me at <a v-bind:href="'mailto:'+person.email"> {{ person.email }} </a> </li>
+        </ol>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    
+    <script src="js/index.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  </body>
+  
+=======
     <div class="center col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
       <center> <h1>My Website</h1> </center>
     </div>
@@ -61,5 +152,5 @@
 
   </body>
   
-  
+
 </html>

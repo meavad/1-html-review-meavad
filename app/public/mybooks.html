@@ -4,17 +4,48 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Tables</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+    </script>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/vue@next"></script>
+=======
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
     </script>
     <link href="style.css" rel="stylesheet" type="text/css" />
+
   </head>
   
   <body class="container bg">  
 
     <header class="row">
   <div class="center col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+
+      <h1 class="text-center"> My Website </h1> 
+    </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="mybooks.html">My Books</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="myinterests.html">My Interests</a>
+            </li>
+          </ul>
+=======
       <center> <h1> My Website</h1> </center>
     </div>
     </header>
@@ -33,11 +64,16 @@
           <li><a href="mybooks.html"> My Books </a></li>
           <li><a href="myinterests.html">My Interests</a></li>
         </ul>
+
       </div>
     </nav>
   <body>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
     <h1>My favourite books</h1>
+
+    <div id='booksApp'>
+=======
+
      <table class="table table-striped table-hover table-condensed" id="myTable_id">
        <thead>
         <tr>  
@@ -50,6 +86,15 @@
         </tr> 
        </thead>
       <tbody>
+
+        <tr v-for="book in books">
+          <td>{{ book.Title }}</td>
+          <td>{{ book.Author }}</td>
+          <td>{{ book.Year_Published }}</td>
+          <td> {{ book.Publisher }}</td>
+          <td>{{ book.page_count }}</td>
+          <td>{{ book.MSRP }}</td>
+=======
         <tr>
         <td class="text-center"> The History of Tom Jones, a Foundling </td> 
         <td class="text-center"> Henry Fielding </td>	
@@ -108,6 +153,39 @@
       </tfoot>
 
      </table>
+
+   
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+      <form v-on:submit.prevent="postNewBook" method="post">
+        <label for="Title"> Title: </label> 
+        <input type="text" v-model="bookForm.Title" 
+        class="form-control" id="title" >        
+        <label for="Author"> Author: </label> 
+        <input type="text" v-model="bookForm.Author" 
+        class="form-control" id="author">
+        <label for="yearpublished" 
+        class="form-label">Year Published</label>
+        <input type="number" v-model="bookForm.Year_Published"
+        class="form-control" id="yearpublished">
+        <label for="publisher" 
+        class="form-label">Publisher</label>
+        <input type="text" v-model="bookForm.Publisher"
+        class="form-control" id="publisher">
+        <label for="pagecount" class="form-label">Page Count</label>
+        <input type="text" v-model="bookForm.page_count"
+        class="form-control" id="pagecount">
+        <label for="msrp" class="form-label">MSRP</label>
+        <input type="number" step="0.01" v-model="bookForm.MSRP"
+        class="form-control" id="msrp">
+        
+       
+        <p> Additional Details </p>
+        <p> <textarea name="notes" id="notes"> </textarea> </p>
+         <input type="submit" name="submit" id="submit" value="Submit" class="button">      
+    </div>
+  </form>
+  </div>
+=======
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
       <form action="confirmation.html" method="post">
@@ -129,8 +207,11 @@
 
 
 
-
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  <script src="js/books.js"></script>
+=======
   <script src='js/tablesort.min.js'></script>
   <script>
     new Tablesort(document.getElementById('myTable_id'));
