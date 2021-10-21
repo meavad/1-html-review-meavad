@@ -45,11 +45,42 @@
       </div>
     </nav>
     <main class="row">
+
+      <div v-for="s in students" v-on:click="selectStudent(s)"
+             :class="['student', {selected: selectedStudent && s.id == selectedStudent.id}]">
+              <span class="userName">{{ s.username }}</span><br>
+              <span class="studentName">{{ s.name }}</span>
+            </div>
+          </div>
    
         <form v-on:submit.prevent="fetchUserData"> 
+          <!-- <div class="mb-3"> makes the checkbox/icon larger, easier to click and read
+            <label for="companyName" class="form-label"> Email Address </label>
+            <input type="email"
+          </div> -->
           <button type="submit"> Refresh </button>
         </form>
-      <div id="randomuser" class="container-fluid">
+      <div id="someApp" class="container-fluid">
+       <div class="student" v-for="s in students"
+       v-on:click="selectStudent(s)"></div>
+       <span class="userName"> {{ s.username }} </span> <br>
+       <span class="studentName"> {{ s.name }} </span>
+       </div>
+       <h1> Offers! </h1>
+       <table>
+         <thead>
+           <tr>
+             <th> Company </th>
+             <th> Salary </th>
+             <th> Bonus </th>
+             <th> Offer Date </th>
+             <th> Status </th>
+           </tr>
+         </thead>
+         <tbody>
+           
+         </tbody>
+       </table>
         <a v-bind:href="person.picture.medium" target="_blank"> <img v-bind:src="person.picture.medium" alt="Random User"></a> 
         <ol>
           <li>  My name is {{ person.name.first }} {{ person.name.last }} </li>   
